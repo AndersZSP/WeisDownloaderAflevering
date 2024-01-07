@@ -1,0 +1,67 @@
+body {
+    text-align: center;
+    background-color: #282B30;
+    font-family: "Segoe UI";
+    color: #BEBEBE;
+    font-weight: bold;
+}
+
+input {
+    margin-bottom: 15px;
+    margin-top 10px;
+}
+label {
+    margin-bottom: 5px;
+}
+
+p {
+    line-height: 1;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius:50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+
+#error-msg {
+    color: #FF5757;
+}
+
+#loading {
+    margin: auto;
+    margin-top: 1em;
+}
+
+#downloadButton {
+    background-color: #32CD32;
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 1em;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+#downloadButton:not([disabled]) {
+  cursor: pointer;
+}
+#downloadButton[disabled] {
+  background-color: grey;
+  cursor: default;
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg); }
+    100% {transform: rotate(360deg); }
+}
+
+@media only screen and (max-width: 725px) {
+    label {
+        display: block;
+    }
+}

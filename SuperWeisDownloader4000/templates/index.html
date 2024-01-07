@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WeisDownloader</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{url_for('static', filename='main.js')}}"></script>
+</head>
+<body>
+    <div class="container">
+        <form id="download_clips_form" method="post" action="#" onsubmit="return validateDates()">
+            <label>Streamer Name:</label>
+            <input type="text" name="name" id="sn" value="{{ name }}" onchange="checkStreamer()">
+            <label>Start Date:</label>
+            <input type="date" name="start" id="start-date"
+                   onchange="validateDates(); changeButton();"
+                   required>
+            <label>End Date:</label>
+            <input type="date" name="end" id="end-date"
+                   onchange="validateDates(); changeButton();"
+                   required>
+        </form>
+        <div id="errorContainer"></div>
+        <div id="streamerCheck"></div>
+
+        {% if error_message %}
+    <p id="error-msg">{{ error_message|replace('\n', '<br>'|safe)}}</p>
+        {% endif %}
+
+        <div id="test" style="display: none"></div>
+
+        <button onclick="setPreviousMonth(); changeButton()">Last month</button>
+        <button onclick="setLastWeek(); changeButton(); validateDates()">7 days</button>
+        <button onclick="setThisMonth(); changeButton(); validateDates()">This month</button>
+        <div class="loader" id="loading" style="display: none"></div>
+        <br>
+        <button type="submit" form="download_clips_form" id="downloadButton" onclick="toggler()" disabled>Download Clips</button>
+    </div>
+</body>
+</html>
